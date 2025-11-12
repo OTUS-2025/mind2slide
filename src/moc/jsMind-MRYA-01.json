@@ -1,0 +1,408 @@
+{
+  "meta": {
+    "name": "МРЯ-01",
+    "author": "loba4evana@gmail.com",
+    "version": "1.0"
+  },
+  "format": "node_tree",
+  "data": {
+    "id": "root",
+    "topic": "Методика обучения РЯ как наука",
+    "expanded": true,
+    "children": [
+      {
+        "id": "basic_concepts",
+        "topic": "Основные понятия",
+        "expanded": true,
+        "children": [
+          {
+            "id": "subject",
+            "topic": "Предмет",
+            "children": [
+              {
+                "id": "language_acquisition_process",
+                "topic": "Процесс овладения языком"
+              }
+            ]
+          },
+          {
+            "id": "goals",
+            "topic": "Цели",
+            "children": [
+              {
+                "id": "theoretical_goal",
+                "topic": "Теоретическая"
+              },
+              {
+                "id": "practical_goal",
+                "topic": "Прикладная"
+              }
+            ]
+          },
+          {
+            "id": "functions",
+            "topic": "Функции",
+            "children": [
+              {
+                "id": "selection_adaptation",
+                "topic": "Отбор и адаптация"
+              },
+              {
+                "id": "theory_practice_ratio",
+                "topic": "Соотношение теории и практики"
+              },
+              {
+                "id": "material_presentation",
+                "topic": "Презентация материала"
+              }
+            ]
+          },
+          {
+            "id": "science_questions",
+            "topic": "Вопросы науки",
+            "children": [
+              {
+                "id": "why_teach",
+                "topic": "Зачем учить?"
+              },
+              {
+                "id": "what_teach",
+                "topic": "Чему учить?"
+              },
+              {
+                "id": "how_teach",
+                "topic": "Как учить?"
+              },
+              {
+                "id": "why_this_way",
+                "topic": "Почему так?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "methodology_sections",
+        "topic": "Разделы методики",
+        "expanded": true,
+        "children": [
+          {
+            "id": "literacy_training",
+            "topic": "Обучение грамоте"
+          },
+          {
+            "id": "literary_reading",
+            "topic": "Литературное чтение"
+          },
+          {
+            "id": "grammar",
+            "topic": "Грамматика"
+          },
+          {
+            "id": "spelling",
+            "topic": "Орфография"
+          },
+          {
+            "id": "speech_development",
+            "topic": "Развитие речи"
+          }
+        ]
+      },
+      {
+        "id": "modern_approaches",
+        "topic": "Современные подходы",
+        "expanded": true,
+        "children": [
+          {
+            "id": "activity_approach",
+            "topic": "Деятельностный",
+            "children": [
+              {
+                "id": "elkonin_davydov",
+                "topic": "Эльконин-Давыдов"
+              }
+            ]
+          },
+          {
+            "id": "communicative_approach",
+            "topic": "Коммуникативный"
+          },
+          {
+            "id": "person_oriented_approach",
+            "topic": "Личностно-ориентированный"
+          },
+          {
+            "id": "competence_approach",
+            "topic": "Компетентностный",
+            "children": [
+              {
+                "id": "linguistic_competence",
+                "topic": "Лингвистическая"
+              },
+              {
+                "id": "communicative_competence",
+                "topic": "Коммуникативная"
+              },
+              {
+                "id": "language_competence",
+                "topic": "Языковая"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teaching_principles",
+        "topic": "Принципы обучения",
+        "expanded": true,
+        "children": [
+          {
+            "id": "meaning_differentiation",
+            "topic": "Дифференцирования значений"
+          },
+          {
+            "id": "language_feeling_based",
+            "topic": "Опора на \"чувство языка\""
+          },
+          {
+            "id": "attention_to_expressiveness",
+            "topic": "Внимание к выразительности"
+          },
+          {
+            "id": "compare_written_oral",
+            "topic": "Сравнение устной и письменной речи"
+          },
+          {
+            "id": "speech_organs_training",
+            "topic": "Тренировка органов речи"
+          },
+          {
+            "id": "progressive_tempo",
+            "topic": "Наращивание темпов"
+          }
+        ]
+      },
+      {
+        "id": "teaching_methods",
+        "topic": "Методы обучения",
+        "expanded": true,
+        "children": [
+          {
+            "id": "practical_methods",
+            "topic": "Практические",
+            "children": [
+              {
+                "id": "word_explanation",
+                "topic": "Объяснение слов"
+              },
+              {
+                "id": "reference_work",
+                "topic": "Работа со справочниками"
+              },
+              {
+                "id": "sentence_construction",
+                "topic": "Конструирование предложений"
+              }
+            ]
+          },
+          {
+            "id": "theoretical_methods",
+            "topic": "Теоретические",
+            "children": [
+              {
+                "id": "conversation",
+                "topic": "Беседа"
+              },
+              {
+                "id": "teacher_story",
+                "topic": "Рассказ учителя"
+              },
+              {
+                "id": "algorithm_creation",
+                "topic": "Составление алгоритмов"
+              }
+            ]
+          },
+          {
+            "id": "theoretical_practical_methods",
+            "topic": "Теоретико-практические",
+            "children": [
+              {
+                "id": "observation",
+                "topic": "Наблюдение"
+              },
+              {
+                "id": "dictation",
+                "topic": "Диктант"
+              },
+              {
+                "id": "language_analysis",
+                "topic": "Языковой разбор"
+              },
+              {
+                "id": "constructing",
+                "topic": "Конструирование"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "umk",
+        "topic": "УМК (Учебно-методические комплекты)",
+        "expanded": true,
+        "children": [
+          {
+            "id": "selection_criteria",
+            "topic": "Критерии выбора",
+            "children": [
+              {
+                "id": "scientific_basis",
+                "topic": "Научность"
+              },
+              {
+                "id": "compliance_with_fgos",
+                "topic": "Соответствие ФГОС"
+              },
+              {
+                "id": "text_quality",
+                "topic": "Качество текстов"
+              },
+              {
+                "id": "age_appropriateness",
+                "topic": "Возрастные особенности"
+              },
+              {
+                "id": "visual_quality",
+                "topic": "Наглядность"
+              }
+            ]
+          },
+          {
+            "id": "system_examples",
+            "topic": "Примеры систем",
+            "children": [
+              {
+                "id": "school_russia",
+                "topic": "\"Школа России\""
+              },
+              {
+                "id": "perspective",
+                "topic": "\"Перспектива\""
+              },
+              {
+                "id": "school_2100",
+                "topic": "\"Школа 2100\""
+              },
+              {
+                "id": "primary_school_21_century",
+                "topic": "\"Начальная школа XXI века\""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "research_methods",
+        "topic": "Методы исследования",
+        "expanded": true,
+        "children": [
+          {
+            "id": "literature_analysis",
+            "topic": "Анализ литературы"
+          },
+          {
+            "id": "school_experience_study",
+            "topic": "Изучение опыта школ"
+          },
+          {
+            "id": "observation_research",
+            "topic": "Наблюдение"
+          },
+          {
+            "id": "experiment",
+            "topic": "Эксперимент"
+          },
+          {
+            "id": "statistics",
+            "topic": "Статистика"
+          }
+        ]
+      },
+      {
+        "id": "methodology_vs_technology",
+        "topic": "Методика vs Технология",
+        "expanded": true,
+        "children": [
+          {
+            "id": "methodology",
+            "topic": "Методика",
+            "children": [
+              {
+                "id": "experience_generalization",
+                "topic": "Обобщение опыта"
+              },
+              {
+                "id": "what_how_teach",
+                "topic": "Отвечает на \"Чему и как учить?\""
+              },
+              {
+                "id": "teacher_dependent",
+                "topic": "Зависит от личности учителя"
+              }
+            ]
+          },
+          {
+            "id": "technology",
+            "topic": "Технология",
+            "children": [
+              {
+                "id": "action_algorithm",
+                "topic": "Алгоритм действий"
+              },
+              {
+                "id": "how_teach_effectively",
+                "topic": "Отвечает на \"Как учить эффективно?\""
+              },
+              {
+                "id": "reproducibility",
+                "topic": "Воспроизводимость"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "modern_trends",
+        "topic": "Современные тенденции",
+        "expanded": true,
+        "children": [
+          {
+            "id": "activity_approach_dominance",
+            "topic": "Доминирование деятельностного подхода"
+          },
+          {
+            "id": "ability_development_focus",
+            "topic": "Акцент на развитие способностей"
+          },
+          {
+            "id": "problem_based_learning",
+            "topic": "Проблемное обучение"
+          },
+          {
+            "id": "reflection_formation",
+            "topic": "Формирование рефлексии"
+          },
+          {
+            "id": "language_personality_development",
+            "topic": "Развитие \"языковой личности\""
+          },
+          {
+            "id": "competence_approach_trend",
+            "topic": "Компетентностный подход"
+          }
+        ]
+      }
+    ]
+  }
+}
