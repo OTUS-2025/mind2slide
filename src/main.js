@@ -14,10 +14,10 @@ app.use(PrimeVue, {
   theme: {
     preset: Aura,
     options: {
-      // cssLayer: {
-      //   name: 'primevue',
-      //   order: 'primevue, tailwind-base, tailwind-utilities',
-      // },
+      cssLayer: {
+        name: 'primevue',
+        order: 'tailwind-base, tailwind-utilities, primevue',
+      },
     },
   },
 })

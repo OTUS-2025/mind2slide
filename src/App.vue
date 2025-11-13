@@ -1,28 +1,41 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import treeData from './moc/jsMind-MRYA-01.json'
 import { Button } from 'primevue'
+
 const tree = reactive(treeData)
+
+const toggleIcon = ref('pi pi-check')
+
 const toggleBranch = (node) => {
   node.expanded = !node.expanded
+  if (node.expanded) {
+    toggleIcon.value = 'pi pi-check'
+  } else {
+    toggleIcon.value = 'pi pi-times'
+  }
+}
+
+const meta2html = () => {
+  if (tree.meta !== '') {
+    return `<p>${tree.meta.name} - ${tree.meta.author} - ${tree.meta.version }<p>`
+  } else {
+    return `<p>Meta not set</p>`
+  }
 }
 </script>
 
 <template>
   <div class="container mx-auto">
     <h1>Mind To Slide</h1>
-    <Button label="Take it!" icon="pi pi-user" variant="outlined" raised />
-    <p v-if="tree.meta !== ''">
-      {{ tree.meta.name }} - {{ tree.meta.author }} {{ tree.meta.version }}
-    </p>
-    <p v-else>Meta not set</p>
+    <p v-html="meta2html()"></p>
     <div v-if="tree.data !== ''" class="">
       <div class="grid grid-cols-4 gap-4">
         <div class="">
           <Button
             v-if="tree.data.children !== ''"
             @click="toggleBranch(tree.data)"
-            icon="pi pi-check"
+            v-bind:icon=toggleIcon
             rounded
             variant="outlined"
             size="small"
