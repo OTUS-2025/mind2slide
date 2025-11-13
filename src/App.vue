@@ -26,11 +26,11 @@ const meta2html = () => {
 </script>
 
 <template>
-  <div class="container mx-auto">
-    <h1>Mind To Slide</h1>
+  <div class="container mx-auto bg-slate-700 px-4 py-2">
+    <h1 class="text-2xl">Mind To Slide</h1>
     <p v-html="meta2html()"></p>
     <div v-if="tree.data !== ''" class="">
-      <div class="grid grid-cols-4 gap-4">
+      <div class="flex flex-row">
         <div class="">
           <Button
             v-if="tree.data.children !== ''"
