@@ -31,6 +31,10 @@ const toggleBranch = (node) => {
 const slideNew = (node) => {
   emit('slideNew',node.id)
 }
+
+const dataUp = (id) => {
+  emit('slideNew',id)
+}
  </script>
 
 <template>
@@ -46,7 +50,7 @@ const slideNew = (node) => {
           <Button icon="pi pi-file-plus" size="small" aria-label="Создать слайд" @click="slideNew(item)"/>
         </div>
       </div>
-      <TreeBranch v-if="isNodeHasChild(item)" v-show="item.expanded" :node="item"/>
+      <TreeBranch v-if="isNodeHasChild(item)" v-show="item.expanded" :node="item" @slide-new="dataUp"/>
     </li>
   </ol>
 </template>

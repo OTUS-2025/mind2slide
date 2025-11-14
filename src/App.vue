@@ -28,7 +28,6 @@ const isEmptyNode = (node) => {
 }
 const slideNew = (id) => {
   console.log(id);
-
 }
 </script>
 
