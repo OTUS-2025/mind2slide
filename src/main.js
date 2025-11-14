@@ -16,7 +16,7 @@ app.use(PrimeVue, {
     options: {
       cssLayer: {
         name: 'primevue',
-        order: 'tailwind-base, tailwind-utilities, primevue',
+        order: 'theme, base, primevue',
       },
     },
   },

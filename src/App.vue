@@ -1,20 +1,15 @@
 <script setup>
 import { reactive, ref } from 'vue'
+import Tree from 'primevue/tree';
+import Panel from 'primevue/panel';
+
+import TreeBranch from './components/TreeBranch.vue';
+
 import treeData from './moc/jsMind-MRYA-01.json'
-import { Button } from 'primevue'
+import data4Tree from './moc/jsMind-MRYA-01-4Tree.json'
 
 const tree = reactive(treeData)
-
-const toggleIcon = ref('pi pi-check')
-
-const toggleBranch = (node) => {
-  node.expanded = !node.expanded
-  if (node.expanded) {
-    toggleIcon.value = 'pi pi-check'
-  } else {
-    toggleIcon.value = 'pi pi-times'
-  }
-}
+const complexList = reactive(data4Tree)
 
 const meta2html = () => {
   if (tree.meta !== '') {
@@ -23,41 +18,34 @@ const meta2html = () => {
     return `<p>Meta not set</p>`
   }
 }
+
+const isEmptyNode = (node) => {
+  if (node !== '') {
+    return false
+  } else {
+    return true
+  }
+}
+const slideNew = (id) => {
+  console.log(id);
+
+}
 </script>
 
 <template>
   <div class="container mx-auto bg-slate-700 px-4 py-2">
-    <h1 class="text-2xl">Mind To Slide</h1>
-    <p v-html="meta2html()"></p>
-    <div v-if="tree.data !== ''" class="">
-      <div class="flex flex-row">
-        <div class="">
-          <Button
-            v-if="tree.data.children !== ''"
-            @click="toggleBranch(tree.data)"
-            v-bind:icon=toggleIcon
-            rounded
-            variant="outlined"
-            size="small"
-            aria-label="Filter"
-          />
-        </div>
-        <div class="">
-          {{ tree.data.topic }}
-        </div>
-      </div>
-
-      <ol v-show="tree.data.expanded" class="">
-        <li v-for="(item, ndx) in tree.data.children" :key="ndx" class="">
-          {{ item.topic }}
-          <ul v-if="item.children !== ''">
-            <li v-for="(child, ndx) in item.children" :key="ndx" class="">
-              {{ child.topic }}
-            </li>
-          </ul>
-        </li>
-      </ol>
+    <div class="flex flex-row justify-between items-center">
+      <h1 class="text-2xl">Mind To Slide</h1>
+      <p v-html="meta2html()"></p>
     </div>
+    <!-- <Tree :value="complexList.data.children">
+      <template #default="slotProps">
+        <b>{{ slotProps.node.label }}</b> - <em>{{slotProps.node.expanded}}</em>
+      </template>
+    </Tree> -->
+    <Panel v-if="!isEmptyNode(tree.data)" :header="tree.data.topic" toggleable>
+      <TreeBranch :node="tree.data" @slide-new="slideNew"/>
+    </Panel>
     <p v-else>Data not set</p>
   </div>
 </template>
