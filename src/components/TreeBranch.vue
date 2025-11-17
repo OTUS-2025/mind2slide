@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue'
-import { Button } from 'primevue'
+import { Button, Badge } from 'primevue'
 
 defineProps(
   {
@@ -15,6 +15,7 @@ const isNodeHasChild = (node) => {
   return node.children ? true : false
 }
 const isIncIndent = () => {
+  // eslint-disable-next-line no-undef
   return indent === 'inc'? true:false
 }
 
@@ -46,8 +47,10 @@ const dataUp = (id) => {
         </div>
         <div class="basis-full">{{ item.topic }}</div>
         <div class="flex flex-row justify-between items-center gap-x-1 controls">
-          <Button icon="pi pi-file" size="small" aria-label="Создать слайд" @click="slideNew(item)"/>
-          <Button icon="pi pi-file-plus" size="small" aria-label="Создать слайд" @click="slideNew(item)"/>
+          <!-- <Badge v-if="item?.slideNdx">{{ item.slideNdx }}</Badge> -->
+          <Button v-if="item?.slideNdx" :label="item.slideNdx" size="small" aria-label="" @click="slideNew(item)"/>
+          <Button v-else icon="pi pi-file" size="small" aria-label="Создать слайд" @click="slideNew(item)"/>
+          <Button v-if="!item?.slideNdx" icon="pi pi-file-plus" size="small" aria-label="Добавить к слайду" @click="slideNew(item)"/>
         </div>
       </div>
       <TreeBranch v-if="isNodeHasChild(item)" v-show="item.expanded" :node="item" @slide-new="dataUp"/>

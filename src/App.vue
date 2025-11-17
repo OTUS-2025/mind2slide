@@ -1,18 +1,19 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import Tree from 'primevue/tree';
+// import Tree from 'primevue/tree';
 import Panel from 'primevue/panel';
 
 import TreeBranch from './components/TreeBranch.vue';
 
-import treeData from './moc/jsMind-MRYA-01.json'
-import data4Tree from './moc/jsMind-MRYA-01-4Tree.json'
+// import data4Tree from './moc/jsMind-MRYA-01-4Tree.json'
+import someJSON from './classes/someJSON';
 
-const tree = reactive(treeData)
-const complexList = reactive(data4Tree)
+// const complexList = reactive(data4Tree)
+
+const tree = reactive(new someJSON())
 
 const meta2html = () => {
-  if (tree.meta !== '') {
+  if (tree.meta) {
     return `<p>${tree.meta.name} - ${tree.meta.author} - ${tree.meta.version }<p>`
   } else {
     return `<p>Meta not set</p>`
@@ -20,14 +21,14 @@ const meta2html = () => {
 }
 
 const isEmptyNode = (node) => {
-  if (node !== '') {
+  if (node) {
     return false
   } else {
     return true
   }
 }
 const slideNew = (id) => {
-  console.log(id);
+  tree.slideNew = id
 }
 </script>
 

@@ -8,12 +8,12 @@
   "data": {
     "id": "root",
     "topic": "Методика обучения РЯ как наука",
-    "expanded": true,
+    "expanded": false,
     "children": [
       {
         "id": "basic_concepts",
         "topic": "Основные понятия",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "subject",
@@ -84,7 +84,7 @@
       {
         "id": "methodology_sections",
         "topic": "Разделы методики",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "literacy_training",
@@ -111,7 +111,7 @@
       {
         "id": "modern_approaches",
         "topic": "Современные подходы",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "activity_approach",
@@ -154,7 +154,7 @@
       {
         "id": "teaching_principles",
         "topic": "Принципы обучения",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "meaning_differentiation",
@@ -185,7 +185,7 @@
       {
         "id": "teaching_methods",
         "topic": "Методы обучения",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "practical_methods",
@@ -250,7 +250,7 @@
       {
         "id": "umk",
         "topic": "УМК (Учебно-методические комплекты)",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "selection_criteria",
@@ -305,7 +305,7 @@
       {
         "id": "research_methods",
         "topic": "Методы исследования",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "literature_analysis",
@@ -332,7 +332,7 @@
       {
         "id": "methodology_vs_technology",
         "topic": "Методика vs Технология",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "methodology",
@@ -375,7 +375,7 @@
       {
         "id": "modern_trends",
         "topic": "Современные тенденции",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "id": "activity_approach_dominance",
