@@ -1,8 +1,9 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 // import Tree from 'primevue/tree';
 import Panel from 'primevue/panel';
 
+import { supabase } from './lib/supabaseClient';
 import TreeBranch from './components/TreeBranch.vue';
 
 // import data4Tree from './moc/jsMind-MRYA-01-4Tree.json'
@@ -30,6 +31,16 @@ const isEmptyNode = (node) => {
 const slideNew = (id) => {
   tree.slideNew = id
 }
+
+const trees = ref([])
+async function getTrees() {
+  const { data } = await supabase.from('forest').select()
+  trees.value = data
+  console.log("🚀 ~ getTrees ~ trees.value:", trees.value)
+}
+onMounted(() => {
+  getTrees()
+})
 </script>
 
 <template>
