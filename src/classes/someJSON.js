@@ -21,7 +21,7 @@ class someJSON {
     return this.setOfData.meta
   }
   get data() {
-  return this.setOfData.data
+    return this.setOfData.data
   }
 
   set slideNew(id) {
