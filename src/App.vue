@@ -37,11 +37,8 @@ onMounted(async () => {
 
 const treeList = computed(() => {
   if (trees?.value.length > 0) {
-    let list = []
-    trees.value.forEach(one => {
-      list.push({ name: one.topic, code: one.id })
-    });
-    return list
+    console.log("🚀 ~ trees:", trees)
+    return trees.value
   } else {
     return []
   }

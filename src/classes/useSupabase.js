@@ -12,8 +12,17 @@ class useSupabase {
   }
 
   async getTrees() {
-    const { data } = await this.client.from('forest').select()
-    return data
+    // const { data } = await this.client.from('forest').select()
+    const answer = await this.client
+      .from('forest')
+      .select('id, tree_root_branch!inner (root_branch, branches!inner ( topic ))')
+    let list = []
+    if (!answer.error) {
+      answer.data.forEach((one) => {
+        list.push({ name: one.tree_root_branch[0].branches.topic, code: one.id })
+      })
+    }
+    return list
   }
 
   async getTreeMeta(id) {
