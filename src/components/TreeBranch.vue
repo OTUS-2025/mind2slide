@@ -8,10 +8,10 @@
         </div>
         <div class="basis-full">{{ item.topic }}</div>
         <div class="flex flex-row justify-between items-center gap-x-1 controls">
-          <!-- <Button v-if="item?.slideNdx" :label="item.slideNdx" size="small" aria-label="" @click="slideNew(item)" />
+          <Button v-if="item?.slideNdx" :label="item.slideNdx" size="small" aria-label="" @click="slideNew(item)" />
           <Button v-else icon="pi pi-file" size="small" aria-label="Создать слайд" @click="slideNew(item)" />
           <Button v-if="!item?.slideNdx" icon="pi pi-file-plus" size="small" aria-label="Добавить к слайду"
-            @click="slideNew(item)" /> -->
+            @click="slideNew(item)" />
         </div>
       </div>
       <!-- <TreeBranch v-if="isNodeHasChild(item)" v-show="item.expanded" :node="item" @slide-new="dataUp" /> -->
@@ -29,18 +29,17 @@ const dataSourse = useSupabase;
 const props = defineProps(
   {
     indent: { type: String, default: "inc" },
-    parent: { type: String, requred: true, default: '' }
+    parent: { type: String, requred: true, default: '' },
+    isRoot: { type: Boolean, default: false }
   }
 )
 
 const emit = defineEmits(['slideNew'])
 
 const getBranch = async () => {
-  // console.log("🚀 ~ getBranch ~ props.parentId:", props.parent)
   let answer = undefined
   if (props.parent !== '') {
-    answer = await dataSourse.getBranch4Parent(props.parent)
-    // console.log("🚀 ~ branches:", answer)
+    answer = await dataSourse.getBranch4Parent(props.parent, props.isRoot)
     return answer
   }
 }
@@ -54,7 +53,6 @@ watch(() => props.parent, async () => {
 }, { deep: true })
 
 const isParentHasChild = computed(() => {
-  // console.log("🚀 ~ branches:", branches.value)
   if (branches.value !== undefined) {
     return branches.value.length > 0 ? true : false
   } else {
