@@ -1,0 +1,16 @@
+name: Codestral
+version: 1.0.2
+schema: v1
+
+models:
+  - name: Codestral
+    provider: mistral
+    model: codestral-latest
+    apiKey: k1B1zwooiePBHSzhziab2L8DwjKkviP3
+    roles:
+      - autocomplete
+      - chat
+      - edit
+      - apply
+    defaultCompletionOptions:
+      contextLength: 256000
