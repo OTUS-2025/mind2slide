@@ -1,14 +1,10 @@
-import { createClient } from '@supabase/supabase-js'
-
+import { useSupabaseStore } from '@/stores/supabaseStore'
 class useSupabase {
-  supabaseUrl = undefined
-  supabasePublishableKey = undefined
+  supabaseStore = useSupabaseStore()
   client = undefined
 
   constructor() {
-    this.supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-    this.supabasePublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
-    this.client = createClient(this.supabaseUrl, this.supabasePublishableKey)
+    this.client = this.supabaseStore.client
   }
 
   // Получение списка деревьев
