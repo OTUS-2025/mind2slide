@@ -28,6 +28,8 @@
           <div class="flex flex-col items-left gap-4 mb-2">
             <label for="author" class="font-semibold ">Email автора</label>
             <InputText id="author" name="author" class="flex-auto w-full" autocomplete="off" />
+            <Message v-if="$form.author?.invalid" severity="error" size="small" variant="simple">{{
+              $form.author.error.message }}</Message>
           </div>
         </Fieldset>
 
@@ -109,11 +111,19 @@ const initialValues = reactive({
 const resolver = zodResolver(
   z.object({
     topic: z.string().min(3, { message: 'Заголовок не может быть пустым' }),
-    author: z.email({ message: 'e-mail не соответствует формату' })
+    shortName: z.string().min(0),
+    author: z.email({ message: 'e-mail не соответствует формату' }),
+    version: z.string().min(0),
+    expanded: z.boolean(),
+    color: z.string().min(0),
+    // format: z.literal(['node_tree', 'node_array', 'freemind']),
+    format: z.object({ name: z.string(), mnemo: z.string() }),
+    thesis: z.string().min(0)
   })
 )
 
 const onAddTreeSubmit = (e) => {
+  console.log("🚀 ~ onAddTreeSubmit ~ e:", e)
   if (e.valid) {
     showAddTreeDlg.value = false
     dataSourse.setNewTree({
@@ -122,7 +132,7 @@ const onAddTreeSubmit = (e) => {
       shortName: e.values.shortName,
       author: e.values.author,
       version: e.values.version,
-      format: e.values.format,
+      format: e.values.format.mnemo,
       color: e.values.color,
       expanded: e.values.expanded
     })

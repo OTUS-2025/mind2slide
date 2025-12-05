@@ -53,7 +53,8 @@ const dataSourse = useSupabase;
 const props = defineProps(
   {
     showDlg: { type: Boolean, requred: true },
-    parentBranch: { type: String, requred: true }
+    parentBranch: { type: String, requred: true },
+    isRoot: { type: Boolean, default: false }
   }
 )
 
@@ -81,6 +82,9 @@ const initialValues = reactive({
 const resolver = zodResolver(
   z.object({
     topic: z.string().min(3, { message: 'Заголовок не может быть пустым' }),
+    expanded: z.boolean(),
+    color: z.string(),
+    thesis: z.string()
   })
 )
 
@@ -93,7 +97,7 @@ const onAddBranchSubmit = (e) => {
       color: e.values.color,
       expanded: e.values.expanded,
       parentBranch: props.parentBranch
-    })
+    }, props.isRoot)
     emit('branchWasAdded', initialValues.topic)
   }
 }
