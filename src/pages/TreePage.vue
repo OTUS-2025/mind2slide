@@ -47,8 +47,10 @@ import TreeBranch from '../components/TreeBranch.vue';
 // import data4Tree from './moc/jsMind-MRYA-01-4Tree.json'
 import someJSON from '../classes/someJSON';
 import useSupabase from '../classes/useSupabase';
+import { useWorkflowStore } from '@/stores/workflowStore';
 import addTree from '../components/dialogs/addTree.vue';
 import addBranch from '../components/dialogs/addBranch.vue';
+import { storeToRefs } from 'pinia';
 
 // const complexList = reactive(data4Tree)
 
@@ -66,11 +68,17 @@ const slideNew = () => {
 }
 
 const trees = ref([])
+
 const selectedTree = ref()
+let { nexusActive } = storeToRefs(useWorkflowStore())
+
 const dataSourse = useSupabase;
 
 onMounted(async () => {
   trees.value = await dataSourse.getTrees()
+  if (nexusActive) {
+    selectedTree.value = nexusActive.value
+  }
 })
 
 const treeList = computed(() => {
@@ -97,6 +105,7 @@ const treeWasSelected = async () => {
     } else {
       treeTopic.value = ''
     }
+    nexusActive.value = selectedTree.value
   }
 }
 const selectedTreeId = computed(() => {
