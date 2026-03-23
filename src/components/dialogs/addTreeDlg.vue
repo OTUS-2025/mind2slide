@@ -89,7 +89,7 @@ watch(() => props.showDlg, (newVal) => {
   }
 }, { deep: true })
 
-const emit = defineEmits(['treeWasAdded', 'treeWasCancelled'])
+const emit = defineEmits(['closeDlg'])
 
 const formats = ref([
   { name: 'Дерево', mnemo: 'node_tree' },
@@ -116,7 +116,6 @@ const resolver = zodResolver(
     version: z.string().min(0),
     expanded: z.boolean(),
     color: z.string().min(0),
-    // format: z.literal(['node_tree', 'node_array', 'freemind']),
     format: z.object({ name: z.string(), mnemo: z.string() }),
     thesis: z.string().min(0)
   })
@@ -136,12 +135,12 @@ const onAddTreeSubmit = (e) => {
       color: e.values.color,
       expanded: e.values.expanded
     })
-    emit('treeWasAdded', initialValues.topic)
+    emit('closeDlg')
   }
 };
 
 const onAddTreeCancel = () => {
   showAddTreeDlg.value = false
-  emit('treeWasCancelled', initialValues.topic)
+  emit('closeDlg')
 }
 </script>

@@ -5,13 +5,16 @@
       Для доступа к данной странице({{ destinationTitle }}) необходимо авторизоваться
     </Message>
     <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" :validateOnBlur="true"
-      @submit="loginSubmit" :feedback="false" class="flex flex-col gap-2 w-full px-3 py-2 ">
+      :validateOnValueUpdate="false" @submit="loginSubmit" :feedback="false"
+      class="flex flex-col gap-2 w-full px-3 py-2 ">
       <Fieldset legend="Введите логин и пароль">
-        <div class="flex flex-col items-left gap-4 mb-2">
+        <div class="flex flex-col items-left gap-4 mb-2" data-test-id="email__inputbox">
           <label for="email" class="font-semibold ">e-mail</label>
           <InputText id="email" name="email" class="flex-auto w-full" />
-          <Message v-if="$form.email?.invalid" severity="error" size="small" variant="simple">{{
-            $form.email.error.message }}</Message>
+          <Message id="email__error-msg" data-test-id="email__error-msg" v-if="$form.email?.invalid" severity="error"
+            size="small" variant="simple">
+            {{ $form.email.error.message }}
+          </Message>
         </div>
         <div class="flex flex-col items-left gap-4 mb-2">
           <label for="password" class="font-semibold ">пароль</label>
@@ -52,8 +55,8 @@ const destinationTitle = route?.query.destinationTitle
 
 // TODO: убрать тестовые данные
 const initialValues = ref({
-  email: 'shumakovmv@gmail.com',
-  password: '7cJi?#9tvV*)*.'
+  // email: 'shumakovmv@gmail.com',
+  // password: '7cJi?#9tvV*)*.'
 });
 
 const resolver = zodResolver(

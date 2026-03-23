@@ -1,12 +1,10 @@
 <template>
   <h2>Tree View</h2>
   <div class="container mx-auto bg-slate-700 px-4 py-2">
-    <div class="flex flex-row justify-between items-center mb-2">
-      <div class="controls flex flex-row justify-between items-center gap-2">
-        <Select v-model="selectedTree" @change="treeWasSelected" :options="treeList" optionLabel="name"
-          placeholder="Select a Tree" size="small" />
-        <Button icon="pi pi-file" size="small" aria-label="Создать новое дерево" @click="showAddTreeDlg = true" />
-      </div>
+    <div class="controls flex flex-row justify-between items-center gap-2 mb-2">
+      <Select v-model="selectedTree" @change="treeWasSelected" :options="treeList" optionLabel="name"
+        placeholder="Select a Tree" size="small" class="w-2/3" />
+      <TreeAdd label="Создать новое дерево" :label-is-show="false" css-classes="w-1/3" />
     </div>
     <!-- <Tree :value="complexList.data.children">
       <template #default="slotProps">
@@ -31,7 +29,6 @@
     </Panel>
     <p v-else>Data not set</p>
   </div>
-  <addTree :show-dlg="showAddTreeDlg" @tree-was-added="treeAdd" @tree-was-cancelled="treeAdd" />
   <addBranch :show-dlg="showAddBranchDlg" :parent-branch="selectedTreeId" :is-root="false" @branch-was-added="branchAdd"
     @branch-was-cancelled="branchAdd" />
 </template>
@@ -43,12 +40,12 @@ import Panel from 'primevue/panel';
 import Select from 'primevue/select';
 import Button from 'primevue/button';
 import TreeBranch from '../components/TreeBranch.vue';
+import TreeAdd from '@/components/TreeAdd.vue';
 
 // import data4Tree from './moc/jsMind-MRYA-01-4Tree.json'
 import someJSON from '../classes/someJSON';
 import useSupabase from '../classes/useSupabase';
 import { useWorkflowStore } from '@/stores/workflowStore';
-import addTree from '../components/dialogs/addTree.vue';
 import addBranch from '../components/dialogs/addBranch.vue';
 import { storeToRefs } from 'pinia';
 
@@ -111,10 +108,6 @@ const treeWasSelected = async () => {
 const selectedTreeId = computed(() => {
   return selectedTree.value !== undefined ? selectedTree.value.code : ''
 })
-const showAddTreeDlg = ref(false)
-const treeAdd = () => {
-  showAddTreeDlg.value = false
-}
 
 const showAddBranchDlg = ref(false)
 const branchAdd = () => {

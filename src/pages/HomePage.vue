@@ -36,8 +36,7 @@
           </Fieldset>
         </li>
         <li class="mb-2">
-          <Button icon="pi pi-file" label="Создать новое дерево" size="small" aria-label="Создать новое дерево"
-            class="w-full" @click="showAddTreeDlg = true" />
+          <TreeAdd label="Добавить новое дерево" css-classes="w-full" />
         </li>
         <li></li>
       </ul>
@@ -57,6 +56,7 @@ import Button from 'primevue/button';
 import Fieldset from 'primevue/fieldset';
 import router from '@/router';
 import { storeToRefs } from 'pinia';
+import TreeAdd from '@/components/TreeAdd.vue';
 
 const user = useUserStore()
 
@@ -83,10 +83,6 @@ const treeWasSelected = () => {
   nexusActive.value = selectedTree.value
 }
 
-// TODO: Перенести обработчик со страницы TreePage. Пернести диалог со страницы TreePage
-const showAddTreeDlg = () => { }
-
-// TODO: Доработать переход на страницу просмотра в звисимости от выбранного вида
 const goToNexusAs = (kind) => {
   router.push({ name: kind })
 }
