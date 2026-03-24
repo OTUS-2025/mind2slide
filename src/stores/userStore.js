@@ -13,7 +13,7 @@ export const useUserStore = defineStore('user', () => {
   const client = useSupabaseStore().client
   let user = ref()
   let session = ref()
-  let loginError = ref()
+  let loginError = ref('')
 
   async function logout() {
     let { error } = await client.auth.signOut()
@@ -32,13 +32,19 @@ export const useUserStore = defineStore('user', () => {
       email: email,
       password: password,
     })
-    if (!error) {
-      user.value = data.user
-      session.value = data.session
-      return true
-    } else {
+    console.log('🚀 ~ logout ~ error:', error)
+    if (error !== '' || !error) {
       loginError.value = error
       return false
+    } else {
+      if (data.user !== null && data.session !== null) {
+        user.value = data.user
+        session.value = data.session
+        return true
+      } else {
+        loginError.value = "Неверный логин или пароль"
+        return false
+      }
     }
   }
 

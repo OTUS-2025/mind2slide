@@ -28,7 +28,7 @@
         <Button type="submit" label="Войти" />
       </div>
     </Form>
-    <Message v-if="user.loginError !== undefined">{{ user.loginError }}</Message>
+    <Message v-show="user.loginError !== ''">{{ user.loginError }}</Message>
   </div>
 </template>
 
@@ -73,6 +73,7 @@ const loginSubmit = (e) => {
       // TODO: Реализовать переход на страницу, на которую хотел перейти пользователь(страница с обязательной авторизацией)
     } else {
       console.log("🚀 ~ loginSubmit ~ user.loginError:", user.loginError)
+      router.push({ name: 'login' })
     }
   }
 }
